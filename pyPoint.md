@@ -23,7 +23,29 @@ str,unicode,tuple,list,bytearray,buffer,xrange
 ## point
 
 - range(*(5,10,2)) : *解析tuple为参数，range(start, stop, step)
+- *: 解析数组与元祖，**： 解析字典
 - &}- ： 集合的与或非
 - from itertools import groupby： 集合的groupby
 - from collections import defaultdict: 也可以实现集合的groupby, 指定字典value的类型，例如：x=defaultdict(list)，通过x[key].append(row)
-- item form item in lise if item is vaild: 此语法来实现集合的filter功能
+- item for item in lise if item is vaild: 此语法来实现集合的filter功能
+- item if item >0 else defaltValue for item in list: 指定默认值filter集合
+- filter 类: 实现集合过滤功能 
+- {key: value for key, value in source.items() if condition}：过滤字典source
+
+## package
+
+- fnmatch：Unix Shell通配符匹配
+- re: 正则匹配
+- urllib：http请求
+- collections-namedtuple: 命名元祖
+- collections-ChainMap: 字典合并
+- os： 系统操作
+- operator：操作接口，例如：getkey = itemgetter（“key”）,返回一个可以被调用的函数，从集合中获取key的值，sorted(list, key=getkey)，按照key对list进行排序
+- heapq： 堆，一个集合放入堆中，可以方便的获取到最大或最小的n条记录
+- itertools： 利用迭代器的函数工具，例如：
+
+```
+count(start=0, step=1) --> start, start+step, start+2*step, ...
+cycle(p) --> p0, p1, ... plast, p0, p1, ...
+repeat(elem [,n]) --> elem, elem, elem, ... endlessly or up to n times
+```
