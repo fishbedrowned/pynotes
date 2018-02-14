@@ -31,6 +31,15 @@ str,unicode,tuple,list,bytearray,buffer,xrange
 - item if item >0 else defaltValue for item in list: 指定默认值filter集合
 - filter 类: 实现集合过滤功能 
 - {key: value for key, value in source.items() if condition}：过滤字典source
+- ^$：正则匹配的开始结束符，如果加上了意思就是匹配到结尾，例如： ‘port&’(以port结尾) 与 'port'（包含port）
+- r'\d+/\d+/\d+' 与 r'(\d+)/(\d+)/(\d+)'： 两个正则的区别在于第一个返回，字符串数组，第二个是返回元祖，例如：‘01/02/2018’, 第一个是['01/02/2018']，第二个是[('01','02','2018')]
+- ljust/rjust/center;format: 格式化输出
+
+```
+# >左边补齐，<右边补齐，^两边补齐
+'{:=>10s} {:*^10s}'.format('Hello', 'World')
+```
+- round: 四舍五入
 
 ## package
 
@@ -49,3 +58,19 @@ count(start=0, step=1) --> start, start+step, start+2*step, ...
 cycle(p) --> p0, p1, ... plast, p0, p1, ...
 repeat(elem [,n]) --> elem, elem, elem, ... endlessly or up to n times
 ```
+- html:处理html文本
+- datetime：日期处理 包括日期生成、字符串日期转换等。
+- dateutil 中提供了一些可用的工具 例如：relativedelta
+
+```
+timedelta: 天时分秒处理 
+timedelta(days=1, hours=2).seconds 不包括天的秒数 
+total_seconds（）指的是所有的秒数
+可以与datetime()对象进行加减运算
+
+a = datetime(2012, 9, 23)
+# a + timedelta(months=1)  # 这个会报错
+a + relativedelta(months=+1) # 使用这个进行解决
+ 
+```
+- pytz:时区处理
